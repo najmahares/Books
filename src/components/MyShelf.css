@@ -1,0 +1,36 @@
+.heart-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 100;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(13, 8, 23, 0.5);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  opacity: 1;
+}
+
+.heart-button svg {
+  width: 12px;
+  height: 12px;
+}
+
+.heart-button:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+  background: rgba(13, 8, 23, 0.8);
+}
+
+.heart-button.saved {
+  color: #e53e3e;
+  border-color: rgba(229, 62, 62, 0.4);
+  background: rgba(229, 62, 62, 0.15);
+}
