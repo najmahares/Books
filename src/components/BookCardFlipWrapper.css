@@ -1,7 +1,3 @@
-/* 
-   FLIP WRAPPER — Wraps BookCard3D
-    */
-
 .flip-wrapper {
   position: relative;
   width: 200px;
@@ -48,10 +44,6 @@
 .flip-wrapper.flipped .flip-back {
   transform: rotateY(0deg);
 }
-
-/* 
-   BACK COVER CONTENT
-    */
 
 .flip-back-inner {
   display: flex;
@@ -118,10 +110,6 @@
   border: 1px solid var(--border);
   color: var(--text-muted);
 }
-
-/* 
-   BACK ACTIONS — Only Back Button
-    */
 
 .flip-back-actions {
   margin-top: auto;

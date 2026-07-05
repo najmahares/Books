@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
@@ -18,12 +19,10 @@ export function MagicCursor() {
   const [trail, setTrail] = useState<TrailDot[]>([]);
   const trailIdRef = useRef(0);
   const lastTrailTime = useRef(0);
-  const rafRef = useRef<number>();
+ const rafRef = useRef<number | nul>(null);
 
-  // FIX: Use ref for position to avoid stale closure in trail logic
   const positionRef = useRef({ x: -100, y: -100 });
 
-  // FIX: Memoized trail update to prevent setInterval + setState churn
   const updateTrail = useCallback(() => {
     setTrail((prev) => {
       if (prev.length === 0) return prev;
@@ -40,7 +39,6 @@ export function MagicCursor() {
   }, []);
 
   useEffect(() => {
-    // Hide default cursor
     document.body.style.cursor = "none";
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -49,7 +47,6 @@ export function MagicCursor() {
       positionRef.current = newPos;
       setIsVisible(true);
 
-      // Add trail dot throttled to ~30ms
       const now = Date.now();
       if (now - lastTrailTime.current > 30) {
         lastTrailTime.current = now;
@@ -70,7 +67,6 @@ export function MagicCursor() {
       setIsHovering(false);
     };
 
-    // FIX: Use event delegation on document instead of window for better capture
     const handleElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const isInteractive =
@@ -100,7 +96,6 @@ export function MagicCursor() {
     document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // FIX: Start RAF loop instead of setInterval
     rafRef.current = requestAnimationFrame(updateTrail);
 
     return () => {
@@ -113,12 +108,10 @@ export function MagicCursor() {
     };
   }, [updateTrail]);
 
-  // FIX: Initialize off-screen instead of (0,0) to prevent flash at top-left on load
   if (!isVisible) return null;
 
   return (
     <>
-      {/* Trail dots */}
       {trail.map((dot) => (
         <div
           key={dot.id}
@@ -132,7 +125,6 @@ export function MagicCursor() {
         />
       ))}
 
-      {/* Main cursor */}
       <div
         className={`magic-cursor ${isHovering ? "hovering" : ""}`}
         style={{

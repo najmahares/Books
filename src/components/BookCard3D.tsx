@@ -57,8 +57,6 @@ export function BookCard3D({ book, index, onSelect }: BookCard3DProps) {
             rotateY(${rotation.y}deg)
             ${isHovered ? "translateZ(30px)" : "translateZ(0)"}
           `,
-          // Fix: Force this element into its own compositing layer
-          // so 3D transforms don't bleed through the background overlay
           willChange: "transform",
         }}
       >
@@ -70,8 +68,6 @@ export function BookCard3D({ book, index, onSelect }: BookCard3DProps) {
             sizes="(max-width: 768px) 100vw, 300px"
             className="cover-image"
             priority={index < 4}
-            // Fix: Add explicit sizes to prevent layout shift
-            // and ensure Next.js generates correct srcset
           />
           <HeartButton bookId={book.id} />
 

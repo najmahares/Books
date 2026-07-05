@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Shelf — Curated Book Discoveries",
+  title: "Curated Book Discoveries",
   description: "A gallery of books worth your time",
 };
 

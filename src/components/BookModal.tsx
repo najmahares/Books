@@ -33,7 +33,6 @@ export function BookModal({
   allBooks,
   onSelectBook,
 }: BookModalProps) {
-  // FIX: Removed duplicate useEffect — only need ONE body scroll lock
   useEffect(() => {
     if (book) {
       document.body.style.overflow = "hidden";
@@ -45,7 +44,6 @@ export function BookModal({
     };
   }, [book]);
 
-  // FIX: Added useCallback for stable reference in dependency array
   const handleEscape = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -119,7 +117,6 @@ export function BookModal({
               ))}
             </div>
 
-            {/* Similar Books */}
             {similarBooks.length > 0 && (
               <div className="similar-books">
                 <h3 className="similar-books-title">You Might Also Enjoy</h3>

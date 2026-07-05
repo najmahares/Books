@@ -8,7 +8,6 @@ export function useShelf() {
   const [savedIds, setSavedIds] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load from localStorage on mount
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
@@ -21,7 +20,6 @@ export function useShelf() {
     setIsLoaded(true);
   }, []);
 
-  // Save to localStorage when changed
   useEffect(() => {
     if (isLoaded) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(savedIds));

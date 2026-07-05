@@ -18,29 +18,25 @@ export function BookCardFlipWrapper({
 }: BookCardFlipWrapperProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  // FIX: Separate front click (flip) from back click (select)
   const handleFrontClick = () => {
     setIsFlipped(true);
   };
 
   const handleBackClick = () => {
-    // Only open modal if NOT clicking the Back button
     onSelect(book);
   };
 
   const handleFlipBack = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Stop from bubbling to .flip-back onClick
+    e.stopPropagation();
     setIsFlipped(false);
   };
 
   return (
     <div className={`flip-wrapper ${isFlipped ? "flipped" : ""}`}>
-      {/* Front: Click to flip */}
       <div className="flip-front">
         <BookCard3D book={book} index={index} onSelect={handleFrontClick} />
       </div>
 
-      {/* Back: Click to open modal, EXCEPT the Back button */}
       <div className="flip-back" onClick={handleBackClick}>
         <div className="flip-back-inner">
           <h4 className="flip-back-title">{book.title}</h4>

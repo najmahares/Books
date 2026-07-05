@@ -11,7 +11,7 @@ export interface Book {
   tags: string[];
   quote?: string;
 }
-// Helper to get cover - tries Open Library first, falls back to thematic image
+
 const cover = (isbn: string, fallback: string) =>
   `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
 
@@ -19,9 +19,7 @@ const fallback = (keyword: string) =>
   `https://source.unsplash.com/400x600/?${keyword}`;
 
 export const books: Book[] = [
-  // ═══════════════════════════════════════
-  // ROMANTASY — 15 Books
-  // ═══════════════════════════════════════
+  //Romantasy
   {
     id: "r1",
     title: "Fourth Wing",
@@ -218,9 +216,7 @@ export const books: Book[] = [
     tags: ["Beauty & Beast", "Disability Rep", "Modern"],
   },
 
-  // ═══════════════════════════════════════
-  // SCI-FI — 15 Books
-  // ═══════════════════════════════════════
+  // Sci-fi
   {
     id: "sf1",
     title: "Dune",
@@ -417,9 +413,7 @@ export const books: Book[] = [
     tags: ["Rebellion", "Class War", "Epic"],
   },
 
-  // ═══════════════════════════════════════
-  // DESIGN & CREATIVITY — 15 Books
-  // ═══════════════════════════════════════
+  // Design
   {
     id: "d1",
     title: "The Design of Everyday Things",
@@ -616,9 +610,7 @@ export const books: Book[] = [
     tags: ["Branding", "Logo", "Identity"],
   },
 
-  // ═══════════════════════════════════════
-  // HISTORY & PHILOSOPHY — 15 Books
-  // ═══════════════════════════════════════
+  // History
   {
     id: "h1",
     title: "Sapiens",
@@ -1010,9 +1002,7 @@ export const books: Book[] = [
     color: "#DAA520",
     tags: ["Taoism", "Wisdom", "Accessible"],
   },
-  // ═══════════════════════════════════════
-  // SELF-HELP & PRODUCTIVITY — 15 Books
-  // ═══════════════════════════════════════
+  // Self-Help
   {
     id: "sh1",
     title: "Atomic Habits",

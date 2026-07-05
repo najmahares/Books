@@ -19,7 +19,6 @@ export function MyShelf({ allBooks, onSelectBook }: MyShelfProps) {
 
   return (
     <>
-      {/* Floating toggle button */}
       <button
         className={`shelf-toggle ${savedIds.length > 0 ? "has-items" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
@@ -42,7 +41,6 @@ export function MyShelf({ allBooks, onSelectBook }: MyShelfProps) {
         )}
       </button>
 
-      {/* Shelf panel */}
       <div className={`shelf-panel ${isOpen ? "open" : ""}`}>
         <div className="shelf-header">
           <h3 className="shelf-title">My Shelf</h3>
@@ -98,7 +96,6 @@ export function MyShelf({ allBooks, onSelectBook }: MyShelfProps) {
         )}
       </div>
 
-      {/* Overlay */}
       {isOpen && (
         <div className="shelf-overlay" onClick={() => setIsOpen(false)} />
       )}
@@ -106,7 +103,6 @@ export function MyShelf({ allBooks, onSelectBook }: MyShelfProps) {
   );
 }
 
-// Heart button to use on each book card
 interface HeartButtonProps {
   bookId: string;
 }
