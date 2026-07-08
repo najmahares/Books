@@ -1,0 +1,8 @@
+
+src/**/* linguist-language=JavaScript
+
+src/**/*.css linguist-language=JavaScript
+
+
+**/*.ts linguist-detectable=false
+**/*.tsx linguist-detectable=false
